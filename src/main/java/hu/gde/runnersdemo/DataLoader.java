@@ -62,14 +62,14 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity3.setHeight(184);
 
         LapTimeEntity laptime5 = new LapTimeEntity();
-        laptime4.setLapNumber(1);
-        laptime4.setTimeSeconds(90);
-        laptime4.setRunner(runnerEntity3);
+        laptime5.setLapNumber(1);
+        laptime5.setTimeSeconds(90);
+        laptime5.setRunner(runnerEntity3);
 
         LapTimeEntity laptime6 = new LapTimeEntity();
-        laptime4.setLapNumber(2);
-        laptime4.setTimeSeconds(110);
-        laptime4.setRunner(runnerEntity3);
+        laptime6.setLapNumber(2);
+        laptime6.setTimeSeconds(110);
+        laptime6.setRunner(runnerEntity3);
 
         runnerEntity3.getLaptimes().add(laptime5);
         runnerEntity3.getLaptimes().add(laptime6);

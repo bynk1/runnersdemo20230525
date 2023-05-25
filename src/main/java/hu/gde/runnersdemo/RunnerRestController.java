@@ -3,6 +3,7 @@ package hu.gde.runnersdemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -70,6 +71,32 @@ public class RunnerRestController {
 
         public void setLapTimeSeconds(int lapTimeSeconds) {
             this.lapTimeSeconds = lapTimeSeconds;
+        }
+    }
+
+    /**
+     * Új végpont a legmagasabb futó nevének lekérdezése
+     */
+    @GetMapping("/getHighestRunnerName")
+    public String getHighestRunnerName() {
+        //összes futó lekérése
+        List<RunnerEntity> runner = runnerRepository.findAll();
+        //lokálisan mi a max méret
+        int actualMaxHeight = 0;
+        //Legmagasabb futó neve
+        String highestRunnerName = "Senki sem magas...";
+        if (runner != null) {
+            for (RunnerEntity runnerEnt: runner) {
+                //Debug
+                // highestRunnerName += "actual:" + String.valueOf(actualMaxHeight) + " < " + String.valueOf(runnerEnt.getHeight()) + runnerEnt.getRunnerName() + ",";
+                if(actualMaxHeight < runnerEnt.getHeight()){
+                    actualMaxHeight = runnerEnt.getHeight();
+                    highestRunnerName = runnerEnt.getRunnerName();
+                }
+            }
+            return highestRunnerName;
+        } else {
+            return "No Runner";
         }
     }
 }
