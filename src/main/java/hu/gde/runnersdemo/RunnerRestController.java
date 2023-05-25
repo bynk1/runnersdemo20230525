@@ -99,4 +99,23 @@ public class RunnerRestController {
             return "No Runner";
         }
     }
+
+    @GetMapping("runners")
+    public String getAllRunnersWithAvarageHeight() {
+        List<RunnerEntity> runners =  runnerRepository.findAll();
+        int totalTime = 0;
+        double avarage = 0;
+        String runnerString = runners.toString();
+        if (runners != null) {
+
+            for (RunnerEntity runner : runners) {
+                totalTime += runner.getHeight();
+            }
+            avarage = totalTime / runners.size();
+            runnerString += "avarage: " + String.valueOf(avarage);
+        } else {
+            return "No size";
+        }
+        return runnerString;
+    }
 }
