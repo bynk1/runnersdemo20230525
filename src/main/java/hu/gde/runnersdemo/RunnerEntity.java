@@ -61,6 +61,7 @@ public class RunnerEntity {
         return laptimes;
     }
 
+
     public List<SponsorEntity> getSponsors() {
         return sponsors;
     }
