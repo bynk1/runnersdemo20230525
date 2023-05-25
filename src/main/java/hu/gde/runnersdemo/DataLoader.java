@@ -53,6 +53,7 @@ public class DataLoader implements CommandLineRunner {
 
         runnerEntity2.getLaptimes().add(laptime3);
         runnerEntity2.getLaptimes().add(laptime4);
+        runnerRepository.save(runnerEntity2);
 
         // új futó + köridő
         RunnerEntity runnerEntity3 = new RunnerEntity();
@@ -73,7 +74,8 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity3.getLaptimes().add(laptime5);
         runnerEntity3.getLaptimes().add(laptime6);
 
-        runnerRepository.save(runnerEntity2);
+        runnerRepository.save(runnerEntity3);
+
     }
 }
 
